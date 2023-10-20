@@ -36,7 +36,7 @@ client.on('message', message => {
     const regex = /::/g;
     const matches = bitAccount.match(regex);
     if (matches && matches.length >= 2) {
-=      fs.readFile('emoji.json', 'utf-8', (err, data) => {
+        fs.readFile('emoji.json', 'utf-8', (err, data) => {
         if (err) {
           console.error('无法读取文件:', err);
           return;
