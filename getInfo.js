@@ -33,12 +33,28 @@ async function getAccountInfo(account){
 }
 
 //获取账户关联的地址（eth，bnb，matic，tron，doge）（cointype：60， 3， 195）
-//参数：账户名  根据账户名查询地址 返回一个地址数组和cointype
+//参数：账户名  根据账户名查询地址 返回一个地址和cointype
+async function getAddress(account){
+    try{
+        const addressData = dotbit.addresses(account)
+        const cointype = addressData.coin_type
+        const address = addressData.value
 
 
+
+        return address;
+    }
+    catch(error){
+        return null;
+    }
+     
+
+
+
+}
 
 //根据地址查数量
-//参数：地址数组  循环查询这个地址数组，并且过滤二级账户，统计一级账户的数量
+//参数：地址数组  循环查询这个地址，并且过滤二级账户，统计一级账户的数量
 
 module.exports = {
     getAccountInfo,
